@@ -8,6 +8,7 @@ func TestStringsFound(t *testing.T) {
 	var a = []string{"bar", "foo", "bazz"}
 
 	var i = IndexOf(v, a)
+
 	if i != 1 {
 		t.Error("not found")
 	}
@@ -19,6 +20,7 @@ func TestStringsNotFound(t *testing.T) {
 	var a = []string{"bar", "foo", "bazz"}
 
 	var i = IndexOf(v, a)
+
 	if i != -1 {
 		t.Error("found")
 	}
@@ -41,7 +43,20 @@ func TestIntsNotFound(t *testing.T) {
 	var a = []int{0, 1, 2}
 
 	var i = IndexOf(v, a)
+
 	if i != -1 {
 		t.Error("found")
+	}
+}
+
+func TestIntsArrayFound(t *testing.T) {
+
+	var v uint8 = 3
+	var a = [5]byte{1, 2, 3, 4, 5}
+
+	var i = IndexOf(v, a)
+
+	if i == -1 {
+		t.Error("not found")
 	}
 }
