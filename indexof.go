@@ -6,7 +6,9 @@ func IndexOf(params ...interface{}) int {
 	v := reflect.ValueOf(params[0])
 	arr := reflect.ValueOf(params[1])
 
-	if reflect.TypeOf(params[1]).Kind() != reflect.Slice {
+	var t = reflect.TypeOf(params[1]).Kind()
+
+	if t != reflect.Slice || t != reflect.Array {
 		panic("Type Error! Second argument must be a slice")
 	}
 
