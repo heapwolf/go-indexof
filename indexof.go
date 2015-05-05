@@ -8,8 +8,8 @@ func IndexOf(params ...interface{}) int {
 
 	var t = reflect.TypeOf(params[1]).Kind()
 
-	if t != reflect.Slice || t != reflect.Array {
-		panic("Type Error! Second argument must be a slice")
+	if t != reflect.Slice && t != reflect.Array {
+		panic("Type Error! Second argument must be an array or a slice.")
 	}
 
 	for i := 0; i < arr.Len()-1; i++ {
